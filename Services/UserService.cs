@@ -6,10 +6,6 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using GetShitDoneBackend.Models;
-using GetShitDoneBackend.Models.DTO;
-using GetShitDoneBackend.Services;
-using GetShitDoneBackend.Services.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
