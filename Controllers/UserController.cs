@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Expired.Models.DTO;
+using Expired.Services;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -31,9 +33,9 @@ namespace Expired.Controllers
         }
 
         [HttpPost("UpdateUser/{id}/{newUsername}")]
-        public bool UpdateUser(int id, string newUsername)
+        public bool UpdateUsername(int id, string newUsername)
         {
-            return _data.UpdateUser(id, newUsername);
+            return _data.UpdateUsername(id, newUsername);
         }
 
 

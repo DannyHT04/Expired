@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Expired.Models;
+using Expired.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Expired.Controllers
@@ -31,16 +33,16 @@ namespace Expired.Controllers
         }
 
         [HttpGet("GetItemsById/{Id}")]
-        public ItemModel GetItemsById(int Id)
+        public ItemModel GetItemById(int Id)
         {
-            return _data.GetItemsById(Id);
+            return _data.GetItemById(Id);
         }
 
         [HttpGet("GetItemsByUserId/{UserId}")]
 
         public IEnumerable<ItemModel>GetItemsByUserId(int UserId)
         {
-            return _data.GetItemsByUserId(UserId);
+            return _data.GetItemByUserId(UserId);
         }
 
         [HttpGet("GetByProductName/{ProductName}")]
@@ -68,15 +70,15 @@ namespace Expired.Controllers
         }
 
         [HttpGet("GetByGroceryList/{GrocderyList}")]
-        public IEnumerable<ItemModel> GetByGroceryList()
+        public IEnumerable<ItemModel> GetGroceryList()
         {
-            return _data.GetByGroceryList();
+            return _data.GetGroceryList();
         }
 
         [HttpGet("GetByDeletedItem/{DeletedItem}")]
-        public IEnumerable<ItemModel> GetByDeletedItem()
+        public IEnumerable<ItemModel> GetIsDeleted()
         {
-            return _data.GetByDeletedItem();
+            return _data.GetIsDeleted();
         }
 
         [HttpPost("UpdateItem")]
@@ -88,7 +90,7 @@ namespace Expired.Controllers
         [HttpPost("DeleteItem")]
         public bool DeleteItem(ItemModel deletedItem)
         {
-            return _data.DelteItem(deletedItem);
+            return _data.DeleteItem(deletedItem);
         }
     }
 }

@@ -2,16 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ExpiredBack.Models;
-using ExpiredBack.Services.Context;
+using Expired.Models;
+using Expired.Services.Context;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Expired.Services
 {
-    public class ItemService
+    public class ItemService : ControllerBase
     {
         private readonly DataContext _context;
 
-        public ItemService (DataContext context)
+        public ItemService(DataContext context)
         {
             _context = context;
         }

@@ -6,6 +6,9 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Expired.Models;
+using Expired.Models.DTO;
+using Expired.Services.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -118,7 +121,7 @@ namespace Expired.Services
             return _context.SaveChanges() !=0; 
         }
 
-        public bool UpdateUsername(string Username)
+        public bool UpdateUsername(int id, string Username)
         {
             //This one is sednig over just the username.
             //Then you have to get the object to then be updated.
