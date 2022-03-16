@@ -61,6 +61,28 @@ namespace Expired.Controllers
             return _data.GetByOwner(Owner);
         }
 
-        
+        [HttpGet("GetByCategory/{Category}")]
+        public IEnumerable<ItemModel>GetByCategory(string Category)
+        {
+            return _data.GetByCategory(Category);
+        }
+
+        [HttpGet("GetByGroceryList/{GrocderyList}")]
+        public IEnumerable<ItemModel> GetByGroceryList()
+        {
+            return _data.GetByGroceryList();
+        }
+
+        [HttpGet("GetByDeletedItem/{DeletedItem}")]
+        public IEnumerable<ItemModel> GetByDeletedItem()
+        {
+            return _data.GetByDeletedItem();
+        }
+
+        [HttpPost("UpdateItem")]
+        public bool UpdateItem(ItemModel updatedItem)
+        {
+            return _data.UpdateItem(updatedItem);
+        }
     }
 }
