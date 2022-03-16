@@ -84,5 +84,11 @@ namespace Expired.Controllers
         {
             return _data.UpdateItem(updatedItem);
         }
+
+        [HttpPost("DeleteItem")]
+        public bool DeleteItem(ItemModel deletedItem)
+        {
+            return _data.DelteItem(deletedItem);
+        }
     }
 }
