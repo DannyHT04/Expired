@@ -69,28 +69,28 @@ namespace Expired.Controllers
             return _data.GetByCategory(Category);
         }
 
-        [HttpGet("GetByGroceryList/{GrocderyList}")]
-        public IEnumerable<ItemModel> GetGroceryList()
-        {
-            return _data.GetGroceryList();
-        }
+        // [HttpGet("GetByGroceryList/{GroceryList}")]
+        // public IEnumerable<ItemModel> GetGroceryList()
+        // {
+        //     return _data.GetGroceryList();
+        // }
 
-        [HttpGet("GetByDeletedItem/{DeletedItem}")]
-        public IEnumerable<ItemModel> GetIsDeleted()
-        {
-            return _data.GetIsDeleted();
-        }
+        // [HttpGet("GetByDeletedItem/{DeletedItem}")]
+        // public IEnumerable<ItemModel> GetIsDeleted()
+        // {
+        //     return _data.GetIsDeleted();
+        // }
 
-        [HttpPost("UpdateItem")]
-        public bool UpdateItem(ItemModel updatedItem)
-        {
-            return _data.UpdateItem(updatedItem);
-        }
+        // [HttpPost("UpdateItem")]
+        // public bool UpdateItem(ItemModel updatedItem)
+        // {
+        //     return _data.UpdateItem(updatedItem);
+        // }
 
-        [HttpPost("DeleteItem")]
-        public bool DeleteItem(ItemModel deletedItem)
-        {
-            return _data.DeleteItem(deletedItem);
-        }
+        // [HttpPost("DeleteItem")]
+        // public bool DeleteItem(ItemModel deletedItem)
+        // {
+        //     return _data.DeleteItem(deletedItem);
+        // }
     }
 }

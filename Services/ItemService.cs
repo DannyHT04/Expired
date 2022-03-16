@@ -24,49 +24,49 @@ namespace Expired.Services
             return _context.SaveChanges() != 0;
         }
 
-        public IEnumerable<ItemModel>GetAllItems()
+        public IEnumerable<ItemModel> GetAllItems()
         {
             return _context.ItemInfo;
         }
 
         public ItemModel GetItemById(int id)
         {
-            return _context.ItemInfo.SingleOrDefault( item => item.Id == id);
+            return _context.ItemInfo.SingleOrDefault(item => item.Id == id);
         }
 
         public IEnumerable<ItemModel> GetItemByUserId(int UserId)
         {
-            return _context = ItemInfo.Where(item => item.UserId == UserId);
+            return _context.ItemInfo.Where(item => item.UserId == UserId);
         }
 
         public IEnumerable<ItemModel> GetByProductName(string ProductName)
         {
-            return _context = ItemInfo.Where( item => item.ProductName == productName);
+            return _context.ItemInfo.Where(item => item.ProductName == ProductName);
         }
 
         public IEnumerable<ItemModel> GetByDateOfExpiration(string DateOfExpiration)
         {
-            return _context = ItemInfo.Where( item => item.DateOfExpiration == DateOfExpiration);
+            return _context.ItemInfo.Where(item => item.DateOfExpiration == DateOfExpiration);
         }
 
-        public IEnumerable<ItemModel> GetByOwner (string Owner)
+        public IEnumerable<ItemModel> GetByOwner(string Owner)
         {
-            return _context = ItemInfo.Where( item => item.Owner == Owner);
+            return _context.ItemInfo.Where(item => item.Owner == Owner);
         }
 
         public IEnumerable<ItemModel> GetByCategory(string Category)
         {
-            return _context = ItemInfo.Where( item => item.Category == Category);
+            return _context.ItemInfo.Where(item => item.Category == Category);
         }
 
         public IEnumerable<ItemModel> GetGroceryList(string isGroceryList)
         {
-            return _context = ItemInfo.Where( item => item.isGroceryList == isGroceryList);
+            return _context.ItemInfo.Where(item => item.isGroceryList);
         }
 
         public IEnumerable<ItemModel> GetIsDeleted(bool isDeleted)
         {
-            return _context = ItemInfo.Where( item => item.isDeleted == isDeleted);
+            return _context.ItemInfo.Where(item => item.isDeleted);
         }
     }
 }
