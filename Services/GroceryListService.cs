@@ -2,6 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Expired.Models;
+using Expired.Services.Context;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Expired.Services
 {
@@ -19,24 +23,28 @@ namespace Expired.Services
             return _context.SaveChanges() != 0;
         }
 
-        public bool DeleteItem(int Id, int UserId, int ItemId)
-        {
-            GroceryModel DeleteGroceryItem = GetGroceryById(Id, UserId, ItemId);
-            bool result = false;
-            if(DeleteGroceryItem != null)
-            {
-                DeleteGroceryItem.Id = id;
-                DeleteGroceryItem.UserId = userId;
-                DeleteGroceryItem.ItemId = itemId;
-                _context.Remove<GroceryModel>(DeleteGroceryItem);
-                result = _context.SaveChanges() != 0;
-            }
-            return result;
-        }
+        // public GroceryModel GetGroceryListByID (int Id)
+        // {
+        //     return  _context.GroceryInfo.SingleOrDefault(item => item.Id == Id);
+        // }        
+        // public bool DeleteItem(int Id, int UserId, int ItemId)
+        // {
+        //     GroceryModel DeleteGroceryItem = GetGroceryListByUserID(UserId);
+        //     bool result = false;
+        //     if(DeleteGroceryItem != null)
+        //     {
+        //         DeleteGroceryItem.Id = Id;
+        //         DeleteGroceryItem.UserId = UserId;
+        //         DeleteGroceryItem.ItemId = ItemId;
+        //         _context.Remove<GroceryModel>(DeleteGroceryItem);
+        //         result = _context.SaveChanges() != 0;
+        //     }
+        //     return result;
+        // }
 
-        public GroceryModel GetGroceryListByUserID(int Id)
+        public IEnumerable<GroceryModel> GetGroceryListByUserID(int UserId)
         {
-            return _context.GroceryInfo.SingleOrDefault(item => item.id == Id);
+            return _context.GroceryInfo.Where(item => item.UserId == UserId);
         }
 
         // public GroceryModel NewGroceryList(GroceryModel)

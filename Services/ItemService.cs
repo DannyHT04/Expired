@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Expired.Services
 {
-    public class ItemService : ControllerBase
+    public class ItemService
     {
         private readonly DataContext _context;
 
