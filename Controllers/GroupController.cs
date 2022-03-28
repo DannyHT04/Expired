@@ -10,6 +10,16 @@ namespace Expired.Controllers
     [Route("[controller]")]
     public class GroupController : ControllerBase
     {
+        private readonly GroupService _data;
+        public GroupController(GroupService dataFromService)
+        {
+            _data = dataFromService;
+        }
+        //Add A Group
+        public bool AddGroup (GroupModel newGroupModel)
+        {
+            return _data.AddGroup(newGroupModel);
+        }
         
     }
 }

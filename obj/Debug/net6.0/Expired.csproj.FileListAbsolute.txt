@@ -1,0 +1,7 @@
+C:\Users\Jovan\OneDrive\Desktop\Expired Project\Expired\obj\Debug\net6.0\Expired.csproj.AssemblyReference.cache
+C:\Users\Jovan\OneDrive\Desktop\Expired Project\Expired\obj\Debug\net6.0\Expired.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jovan\OneDrive\Desktop\Expired Project\Expired\obj\Debug\net6.0\Expired.AssemblyInfoInputs.cache
+C:\Users\Jovan\OneDrive\Desktop\Expired Project\Expired\obj\Debug\net6.0\Expired.AssemblyInfo.cs
+C:\Users\Jovan\OneDrive\Desktop\Expired Project\Expired\obj\Debug\net6.0\Expired.csproj.CoreCompileInputs.cache
+C:\Users\Jovan\OneDrive\Desktop\Expired Project\Expired\obj\Debug\net6.0\Expired.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Jovan\OneDrive\Desktop\Expired Project\Expired\obj\Debug\net6.0\Expired.MvcApplicationPartsAssemblyInfo.cache
