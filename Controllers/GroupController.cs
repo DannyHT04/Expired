@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Expired.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class GroupController : ControllerBase
     {
         
