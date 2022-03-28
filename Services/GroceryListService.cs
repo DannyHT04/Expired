@@ -7,6 +7,10 @@ namespace Expired.Services
 {
     public class GroceryListService
     {
-        
+        private readonly DataContext _context;
+        public GroceryListService(DataContext context)
+        {
+            _context = context;
+        }
     }
 }
