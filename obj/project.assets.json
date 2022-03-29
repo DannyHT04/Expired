@@ -2058,19 +2058,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Jovan\\.nuget\\packages\\": {}
+    "C:\\Users\\Danny\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jovan\\OneDrive\\Desktop\\Expired Project\\Expired\\Expired.csproj",
+      "projectUniqueName": "C:\\Users\\Danny\\Documents\\Codestack\\level3\\Expired\\Expired.csproj",
       "projectName": "Expired",
-      "projectPath": "C:\\Users\\Jovan\\OneDrive\\Desktop\\Expired Project\\Expired\\Expired.csproj",
-      "packagesPath": "C:\\Users\\Jovan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jovan\\OneDrive\\Desktop\\Expired Project\\Expired\\obj\\",
+      "projectPath": "C:\\Users\\Danny\\Documents\\Codestack\\level3\\Expired\\Expired.csproj",
+      "packagesPath": "C:\\Users\\Danny\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Danny\\Documents\\Codestack\\level3\\Expired\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Jovan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Danny\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"

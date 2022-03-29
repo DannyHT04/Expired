@@ -7,21 +7,21 @@ using Expired.Services.Context;
 
 namespace Expired.Services
 {
-    public class GroupService 
+    public class GroupService
     {
-        private readonly  DataContext _context;
+        private readonly DataContext _context;
         public GroupService(DataContext context)
         {
             _context = context;
         }
 
-        public bool  AddGroup (GroupModel newGroupModel)
+        public bool AddGroup(GroupModel newGroupModel)
         {
             _context.Add(newGroupModel);
             return _context.SaveChanges() != 0;
         }
 
-        
+
         public GroupModel GetGroupById(int Id)
         {
             return _context.GroupsInfo.SingleOrDefault(item => item.Id == Id);
@@ -31,11 +31,11 @@ namespace Expired.Services
         {
             GroupModel foundGroup = GetGroupById(Id);
             bool result = false;
-            if(foundGroup != null)
+            if (foundGroup != null)
             {
                 foundGroup.Id = Id;
                 _context.Remove<GroupModel>(foundGroup);
-                result = _context.SaveChanges() !=0;
+                result = _context.SaveChanges() != 0;
             }
             return result;
         }
@@ -48,7 +48,7 @@ namespace Expired.Services
             {
                 foundUser.GroupName = newGroupName;
                 _context.Update<GroupModel>(foundUser);
-                result =_context.SaveChanges() !=0;
+                result = _context.SaveChanges() != 0;
             }
             return result;
         }
@@ -60,10 +60,10 @@ namespace Expired.Services
             {
                 foundUser.GroupPassword = newPassword;
                 _context.Update<GroupModel>(foundUser);
-                result =_context.SaveChanges() !=0;
+                result = _context.SaveChanges() != 0;
             }
             return result;
         }
-        
+
     }
 }
