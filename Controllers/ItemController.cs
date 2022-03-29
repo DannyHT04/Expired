@@ -27,28 +27,28 @@ namespace Expired.Controllers
         //Getting all users items
         [HttpGet("GetAllUserItems/{userId}")]
 
-        public IEnumerable<ItemModel>GetAllUserItemsByUserId(int userId)
+        public IEnumerable<ItemModel> GetAllUserItemsByUserId(int userId)
         {
             return _data.GetAllUserItemsByUserId(userId);
         }
+        // geting all group items
+        [HttpGet("GetAllGroupItems/{GroupId}")]
 
+        public IEnumerable<ItemModel> GetAllGroupItems(int GroupId)
+        {
+            return _data.GetAllUserItemsByUserId(GroupId);
+        }
+
+        //Get Items by their Id
         [HttpGet("GetItemById/{Id}")]
         public ItemModel GetItemById(int Id)
         {
             return _data.GetItemById(Id);
         }
-        //Getting items by users id
-        [HttpGet("GetItemsByUserId/{UserId}")]
-
-        //Getting the product name
-        // [HttpGet("GetByProductName/{ProductName}")]
-        // public IEnumerable<ItemModel>GetByProductName(string ProductName)
-        // {
-        //     return _data.GetByProductName(ProductName);
-        // }
+        
         //Getting the expiration of that item
         [HttpGet("GetByDateOfExpiration/{DateOfExpiration}")]
-        public IEnumerable<ItemModel>GetByDateOfExpiration(string DateOfExpiration)
+        public IEnumerable<ItemModel> GetByDateOfExpiration(string DateOfExpiration)
         {
             return _data.GetByDateOfExpiration(DateOfExpiration);
         }
@@ -60,17 +60,10 @@ namespace Expired.Controllers
         }
         //Getting item by category
         [HttpGet("GetByCategory/{Category}")]
-        public IEnumerable<ItemModel>GetByCategory(string Category)
+        public IEnumerable<ItemModel> GetByCategory(string Category)
         {
             return _data.GetByCategory(Category);
         }
-
-        //Add Item to Grocery List
-        // [HttpPost("AddItemToGroceryList/{Id}/{GroupId}")]
-        // public bool AddItemToGroceryList(int Id, int GroupId)
-        // {
-        //     return _data.AddItemToGroceryList(Id, GroupId);
-        // }
 
         //Add To Grocery List by ID
         [HttpPost("AddToGroceryList/{Id}")]
@@ -79,22 +72,29 @@ namespace Expired.Controllers
             return _data.AddToGroceryList(Id);
         }
 
-        // [HttpGet("GetByDeletedItem/{DeletedItem}")]
-        // public IEnumerable<ItemModel> GetIsDeleted()
-        // {
-        //     return _data.GetIsDeleted();
-        // }
+        [HttpGet("GetGroceryListByUserId/{UserId}")]
+        public IEnumerable<ItemModel> GetGroceryListByUserId(int UserId)
+        {
+            return _data.GetGroceryListByUserId(UserId);
+        }
 
-        // [HttpPost("UpdateItem")]
-        // public bool UpdateItem(ItemModel updatedItem)
-        // {
-        //     return _data.UpdateItem(updatedItem);
-        // }
+        [HttpGet("GetGroceryListByGroupId/{GroupId}")]
+        public IEnumerable<ItemModel> GetGroceryListByGroupId(int GroupId)
+        {
+            return _data.GetGroceryListByGroupId(GroupId);
+        }
 
-        // [HttpPost("DeleteItem")]
-        // public bool DeleteItem(ItemModel deletedItem)
-        // {
-        //     return _data.DeleteItem(deletedItem);
-        // }
+        //Delete an Item by item id
+        [HttpPost("DeleteItem/{Id}")]
+        public bool DeleteItem(int Id)
+        {
+            return _data.DeleteItem(Id);
+        }
+
+        [HttpPost("UpdateItem")]
+        public bool UpdateItem(ItemModel ItemToUpdate)
+        {
+            return _data.UpdateItem(ItemToUpdate);
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace Expired.Services
             _context = context;
         }
 
+        //creating items models
         public bool AddItem(ItemModel newItemModel)
         {
             _context.Add(newItemModel);
@@ -24,22 +25,25 @@ namespace Expired.Services
             return _context.SaveChanges() != 0;
         }
 
+        //returns items own by the user by the user id
         public IEnumerable<ItemModel> GetAllUserItemsByUserId(int userId)
         {
             return _context.ItemInfo.Where(item => item.UserId == userId);
         }
 
-        public ItemModel GetItemById(int id)
+        //returns items own by the group by the group id
+        public IEnumerable<ItemModel> GetAllGroupItems(int GroupId)
         {
-            return _context.ItemInfo.SingleOrDefault(item => item.Id == id);
+            return _context.ItemInfo.Where(item => item.GroupId == GroupId);
         }
 
-        ///////////////DO WE NEED THIS??//////////////////
-        // public ItemModel GetByProductName(string ProductName)
-        // {
-        //     return _context.ItemInfo.SingleOrDefault(item => item.ProductName == ProductName);
-        // }
+        // getting the item by item's Id
+        public ItemModel GetItemById(int Id)
+        {
+            return _context.ItemInfo.SingleOrDefault(item => item.Id == Id);
+        }
 
+        //getting item by item's expirations
         public IEnumerable<ItemModel> GetByDateOfExpiration(string DateOfExpiration)
         {
             return _context.ItemInfo.Where(item => item.DateOfExpiration == DateOfExpiration);
@@ -70,30 +74,6 @@ namespace Expired.Services
             return _context.ItemInfo.SingleOrDefault(item => item.GroupId == GroupId) != null;
         }
         
-   
-        // group grocery List
-        // if item is in a group AND isGroceryList = true
-        // then return all items that is true to group list
-
-
-        // public bool AddItemToGroceryList(GroupModel newGroupModel)
-        // {
-        //     bool result = false;
-        //     if(!DoesGroupExist)
-           
-
-        //     GroupModel Id = ItemModel GroupId
-    
-        // }
-
-
-
-             // user grocery list
-        // if the item of the user isGroceryList = True
-        // then return all items that is true to user's grocery list
-
-
-
         // change bool of isGroceryList 
         public bool AddToGroceryList(int Id)
         {
@@ -106,6 +86,36 @@ namespace Expired.Services
                 result = _context.SaveChanges() != 0;
             }
             return result;
+        }
+
+        //getting the grocery list by users
+        public IEnumerable<ItemModel> GetGroceryListByUserId(int UserId)
+        {
+            return _context.ItemInfo.Where(item => item.UserId == UserId && item.isGroceryList == true);
+        }
+        //getting the grocery list by group id
+        public IEnumerable<ItemModel> GetGroceryListByGroupId(int GroupId)
+        {
+            return _context.ItemInfo.Where(item => item.GroupId == GroupId && item.isGroceryList == true);
+        }
+        
+        // delete an item with the item id
+        public bool DeleteItem(int Id)
+        {
+            bool result = false;
+            ItemModel foundItem = GetItemById(Id);
+            if(foundItem != null)
+            {
+                _context.Remove<ItemModel>(foundItem);
+                result = _context.SaveChanges() != 0; 
+            }
+            return result;
+        }
+
+        public bool UpdateItem(ItemModel ItemToUpdate)
+        {
+            _context.Update<ItemModel>(ItemToUpdate);
+            return _context.SaveChanges() !=0;
         }
     }
 }
