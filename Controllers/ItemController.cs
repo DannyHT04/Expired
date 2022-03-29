@@ -18,62 +18,66 @@ namespace Expired.Controllers
         {
             _data = dataFromService;
         }
-
+        //Adding an item 
         [HttpPost("AddItem")]
         public bool AddItem(ItemModel newItem)
         {
             return  _data.AddItem(newItem);
         }
+        //Getting all users items
+        [HttpGet("GetAllUserItems/{userId}")]
 
-        [HttpGet("GetItems")]
-
-        public IEnumerable<ItemModel>GetAllItems()
+        public IEnumerable<ItemModel>GetAllUserItemsByUserId(int userId)
         {
-            return _data.GetAllItems();
+            return _data.GetAllUserItemsByUserId(userId);
         }
 
-        [HttpGet("GetItemsById/{Id}")]
+        [HttpGet("GetItemById/{Id}")]
         public ItemModel GetItemById(int Id)
         {
             return _data.GetItemById(Id);
         }
-
+        //Getting items by users id
         [HttpGet("GetItemsByUserId/{UserId}")]
 
-        public IEnumerable<ItemModel>GetItemsByUserId(int UserId)
-        {
-            return _data.GetItemByUserId(UserId);
-        }
-
-        [HttpGet("GetByProductName/{ProductName}")]
-        public IEnumerable<ItemModel>GetByProductName(string ProductName)
-        {
-            return _data.GetByProductName(ProductName);
-        }
-
+        //Getting the product name
+        // [HttpGet("GetByProductName/{ProductName}")]
+        // public IEnumerable<ItemModel>GetByProductName(string ProductName)
+        // {
+        //     return _data.GetByProductName(ProductName);
+        // }
+        //Getting the expiration of that item
         [HttpGet("GetByDateOfExpiration/{DateOfExpiration}")]
         public IEnumerable<ItemModel>GetByDateOfExpiration(string DateOfExpiration)
         {
             return _data.GetByDateOfExpiration(DateOfExpiration);
         }
-
+        //Getting the owner of the item
         [HttpGet("GetByOwner/{Owner}")]
         public IEnumerable<ItemModel>GetByOwner(string Owner)
         {
             return _data.GetByOwner(Owner);
         }
-
+        //Getting item by category
         [HttpGet("GetByCategory/{Category}")]
         public IEnumerable<ItemModel>GetByCategory(string Category)
         {
             return _data.GetByCategory(Category);
         }
 
-        // [HttpGet("GetByGroceryList/{GroceryList}")]
-        // public IEnumerable<ItemModel> GetGroceryList()
+        //Add Item to Grocery List
+        // [HttpPost("AddItemToGroceryList/{Id}/{GroupId}")]
+        // public bool AddItemToGroceryList(int Id, int GroupId)
         // {
-        //     return _data.GetGroceryList();
+        //     return _data.AddItemToGroceryList(Id, GroupId);
         // }
+
+        //Add To Grocery List by ID
+        [HttpPost("AddToGroceryList/{Id}")]
+        public bool AddToGroceryList(int Id)
+        {
+            return _data.AddToGroceryList(Id);
+        }
 
         // [HttpGet("GetByDeletedItem/{DeletedItem}")]
         // public IEnumerable<ItemModel> GetIsDeleted()

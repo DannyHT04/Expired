@@ -21,12 +21,7 @@ namespace Expired.Services
             return _context.SaveChanges() != 0;
         }
 
-        // public bool AddMembers(int Id, string GroupMembers)
-        // {
-
-        //     return _context.
-        // }
-
+        
         public GroupModel GetGroupById(int Id)
         {
             return _context.GroupsInfo.SingleOrDefault(item => item.Id == Id);
@@ -34,25 +29,41 @@ namespace Expired.Services
 
         public bool DeleteAGroup(int Id)
         {
-            GroceryModel foundGroup = GetGroupById(Id);
+            GroupModel foundGroup = GetGroupById(Id);
             bool result = false;
             if(foundGroup != null)
             {
                 foundGroup.Id = Id;
-                _context.Remove<GroceryModel>(foundGroup);
+                _context.Remove<GroupModel>(foundGroup);
                 result = _context.SaveChanges() !=0;
             }
             return result;
         }
 
+        public bool EditGroupName(int Id, string? newGroupName)
+        {
+            GroupModel foundUser = GetGroupById(Id);
+            bool result = false;
+            if (foundUser != null)
+            {
+                foundUser.GroupName = newGroupName;
+                _context.Update<GroupModel>(foundUser);
+                result =_context.SaveChanges() !=0;
+            }
+            return result;
+        }
+        public bool EditGroupPassword(int Id, string? newPassword)
+        {
+            GroupModel foundUser = GetGroupById(Id);
+            bool result = false;
+            if (foundUser != null)
+            {
+                foundUser.GroupPassword = newPassword;
+                _context.Update<GroupModel>(foundUser);
+                result =_context.SaveChanges() !=0;
+            }
+            return result;
+        }
         
-        
-        // public bool DeleteTaskItem(TaskItemModel TaskDelete)
-        // {
-        //     TaskDelete.IsDeleted = true;
-        //     _context.Update<TaskItemModel>(TaskDelete);
-        //     return _context.SaveChanges() !=0;
-           
-        // }
     }
 }

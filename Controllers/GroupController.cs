@@ -20,15 +20,9 @@ namespace Expired.Controllers
 
         //Add A Group
         [HttpPost("AddGroup")]
-        public bool AddGroup (GroupModel newGroupModel)
+        public bool AddGroup(GroupModel newGroupModel)
         {
             return _data.AddGroup(newGroupModel);
-        }
-        //Add A Member
-        [HttpPost("AddMembers/{Id}/{Groupmembers}")]
-        public bool AddMembers(int Id, string GroupMembers)
-        {
-            return _data.AddMembers(Id, GroupMembers);
         }
 
         //Delete a Group
@@ -44,6 +38,19 @@ namespace Expired.Controllers
         {
             return _data.GetGroupById(Id);
         }
-        
+
+        //Edit Group Name
+        [HttpPost("EditGroupName/{Id}/{newGroupName}")]
+        public bool EditGroupName(int Id, string? newGroupName)
+        {
+            return _data.EditGroupName(Id, newGroupName);
+        }
+
+        //Edit Group Password
+        [HttpPost("EditGroupPassword/{Id}/{newPassword}")]
+        public bool EditGroupPassword(int Id, string? newPassword)
+        {
+            return _data.EditGroupPassword(Id, newPassword);
+        }
     }
 }

@@ -37,6 +37,11 @@ namespace Expired.Services
         {
             return _context.UserInfo.SingleOrDefault( user => user.Username == username);
         }
+        public UserModel GetUserById(int Id)
+        {
+            return _context.UserInfo.SingleOrDefault( user => user.Id == Id);
+        }
+
 
         public UserIdDTO GetUserIdDTOByUsername(string username)
         {
@@ -152,5 +157,20 @@ namespace Expired.Services
             }
             return result;
         }
+
+        public bool AddUserToGroup(int Id, int GroupId)
+        {
+            bool result = false;
+            UserModel foundUser = GetUserById(Id);
+            if(foundUser != null)
+            {
+                foundUser.GroupId = GroupId;
+                _context.Update<UserModel>(foundUser);
+                result = _context.SaveChanges()!=0;
+            }
+            return result;
+        }
+
+        
     }
 }

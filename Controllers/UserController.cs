@@ -20,25 +20,40 @@ namespace Expired.Controllers
             _data = _dataFromService;
         }
 
+        //Add a User
         [HttpPost("AddUser")]
         public bool AddUser(CreateAccountDTO UserToAdd)
         {
             return _data.AddUser(UserToAdd);
         }
 
+        //Add a user to a group by user Id and group ID
+        [HttpPost("AddUserToGroup/{Id}/{GroupId}")]
+        public bool AddUserToGroup(int Id, int GroupId)
+        {
+            return _data.AddUserToGroup(Id, GroupId);
+        }
+
+        //Login
         [HttpPost("Login")]
         public IActionResult Login([FromBody] LoginDTO User)
         {
             return _data.Login(User);
         }
 
+        //Update A User By Id & Username
         [HttpPost("UpdateUser/{id}/{newUsername}")]
         public bool UpdateUsername(int id, string newUsername)
         {
             return _data.UpdateUsername(id, newUsername);
         }
 
-
+        //Delete A User
+        [HttpPost("DeleteUser/{UserName}")]
+        public bool DeleteUser(string? Username)
+        {
+            return _data.DeleteUser(Username);
+        }
 
     }
 }
