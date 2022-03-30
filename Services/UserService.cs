@@ -128,9 +128,9 @@ namespace Expired.Services
 
         public bool UpdateUsername(int id, string Username)
         {
-            //This one is sednig over just the username.
+            //This one is sending over just the username.
             //Then you have to get the object to then be updated.
-            UserModel foundUser = GetUserByUsername(Username);
+            UserModel foundUser = GetUserById(id);
             bool result = false;
             if(foundUser != null)
             {
@@ -144,7 +144,7 @@ namespace Expired.Services
 
         public bool DeleteUser(string Username)
         {
-            //This one is sednig over just the username.
+            //This one is sending over just the username.
             //Then you have to get the object to then be updated.
             UserModel foundUser = GetUserByUsername(Username);
             bool result = false;

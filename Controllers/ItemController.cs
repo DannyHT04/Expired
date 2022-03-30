@@ -36,7 +36,7 @@ namespace Expired.Controllers
 
         public IEnumerable<ItemModel> GetAllGroupItems(int GroupId)
         {
-            return _data.GetAllUserItemsByUserId(GroupId);
+            return _data.GetAllGroupItems(GroupId);
         }
 
         //Get Items by their Id

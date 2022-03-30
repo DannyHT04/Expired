@@ -16,10 +16,20 @@ namespace Expired.Services
             _context = context;
         }
 
+        public bool DoesGroupExist(string? GroupName) 
+        {
+            
+            return _context.GroupsInfo.SingleOrDefault( Group => Group.GroupName == GroupName) != null;
+        }
         public bool AddGroup(GroupModel newGroupModel)
         {
-            _context.Add(newGroupModel);
-            return _context.SaveChanges() != 0;
+            bool result = false;
+           if(!DoesGroupExist(newGroupModel.GroupName)){
+               _context.Add(newGroupModel);
+               result = _context.SaveChanges() != 0;
+           }
+            
+            return result;
         }
 
 
