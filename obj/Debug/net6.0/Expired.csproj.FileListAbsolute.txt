@@ -66,3 +66,8 @@ C:\Users\Danny\Documents\Codestack\level3\Expired\obj\Debug\net6.0\Expired.dll
 C:\Users\Danny\Documents\Codestack\level3\Expired\obj\Debug\net6.0\ref\Expired.dll
 C:\Users\Danny\Documents\Codestack\level3\Expired\obj\Debug\net6.0\Expired.pdb
 C:\Users\Danny\Documents\Codestack\level3\Expired\obj\Debug\net6.0\Expired.genruntimeconfig.cache
+C:\Users\Danny\Documents\Codestack\level3\Expired\bin\Debug\net6.0\publish\web.config
+C:\Users\Danny\Documents\Codestack\level3\Expired\bin\Debug\net6.0\publish\appsettings.Development.json
+C:\Users\Danny\Documents\Codestack\level3\Expired\bin\Debug\net6.0\publish\appsettings.json
+C:\Users\Danny\Documents\Codestack\level3\Expired\bin\Debug\net6.0\publish\Expired.deps.json
+C:\Users\Danny\Documents\Codestack\level3\Expired\bin\Debug\net6.0\publish\Expired.runtimeconfig.json

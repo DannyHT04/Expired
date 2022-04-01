@@ -47,6 +47,7 @@ namespace Expired.Controllers
         }
         
         //Getting the expiration of that item
+        // date example 04-13-2022
         [HttpGet("GetByDateOfExpiration/{DateOfExpiration}")]
         public IEnumerable<ItemModel> GetByDateOfExpiration(string DateOfExpiration)
         {

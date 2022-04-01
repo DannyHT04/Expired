@@ -46,15 +46,22 @@ namespace Expired.Migrations
                         new
                         {
                             Id = 1,
-                            GroupName = "Test",
+                            GroupName = "Group 1",
                             GroupPassword = "123",
                             IsGroupDeleted = false
                         },
                         new
                         {
                             Id = 2,
-                            GroupName = "Another Group",
+                            GroupName = "Group 2",
                             GroupPassword = "321",
+                            IsGroupDeleted = false
+                        },
+                        new
+                        {
+                            Id = 3,
+                            GroupName = "Group 3",
+                            GroupPassword = "ILovePanCakes",
                             IsGroupDeleted = false
                         });
                 });
@@ -97,6 +104,138 @@ namespace Expired.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ItemInfo");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Category = "Dairy",
+                            DateOfExpiration = "04-13-2022",
+                            GroupId = 1,
+                            Owner = "Danny",
+                            ProductImage = "I am a string of a png",
+                            ProductName = "Milk",
+                            UserId = 1,
+                            isDeleted = false,
+                            isGroceryList = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Category = "Food",
+                            DateOfExpiration = "04-15-2022",
+                            GroupId = 1,
+                            Owner = "Danny",
+                            ProductImage = "I am a string of a png",
+                            ProductName = "Bread",
+                            UserId = 1,
+                            isDeleted = false,
+                            isGroceryList = false
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Category = "Drink",
+                            DateOfExpiration = "06-13-2023",
+                            GroupId = 0,
+                            Owner = "Jovann",
+                            ProductImage = "I am a string of a png",
+                            ProductName = "Pepsi",
+                            UserId = 2,
+                            isDeleted = false,
+                            isGroceryList = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Category = "Dairy",
+                            DateOfExpiration = "04-27-2022",
+                            GroupId = 0,
+                            Owner = "Jovann",
+                            ProductImage = "I am a string of a png",
+                            ProductName = "Milk",
+                            UserId = 2,
+                            isDeleted = false,
+                            isGroceryList = false
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Category = "Food",
+                            DateOfExpiration = "06-13-2022",
+                            GroupId = 1,
+                            Owner = "Trent",
+                            ProductImage = "I am a string of a png",
+                            ProductName = "Eggs",
+                            UserId = 3,
+                            isDeleted = false,
+                            isGroceryList = true
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Category = "Food",
+                            DateOfExpiration = "04-26-2022",
+                            GroupId = 1,
+                            Owner = "Trent",
+                            ProductImage = "I am a string of a png",
+                            ProductName = "Steak",
+                            UserId = 3,
+                            isDeleted = false,
+                            isGroceryList = false
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Category = "Food",
+                            DateOfExpiration = "04-27-2022",
+                            GroupId = 2,
+                            Owner = "Billy",
+                            ProductImage = "I am a string of a png",
+                            ProductName = "Steak",
+                            UserId = 4,
+                            isDeleted = false,
+                            isGroceryList = true
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Category = "Food",
+                            DateOfExpiration = "04-27-2022",
+                            GroupId = 2,
+                            Owner = "Billy",
+                            ProductImage = "I am a string of a png",
+                            ProductName = "Bacon",
+                            UserId = 4,
+                            isDeleted = false,
+                            isGroceryList = true
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Category = "Food",
+                            DateOfExpiration = "07-26-2023",
+                            GroupId = 3,
+                            Owner = "Bob",
+                            ProductImage = "I am a string of a png",
+                            ProductName = "Kimchi",
+                            UserId = 5,
+                            isDeleted = false,
+                            isGroceryList = false
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Category = "Food",
+                            DateOfExpiration = "04-02-2022",
+                            GroupId = 3,
+                            Owner = "Bob",
+                            ProductImage = "I am a string of a png",
+                            ProductName = "Ranch",
+                            UserId = 5,
+                            isDeleted = false,
+                            isGroceryList = false
+                        });
                 });
 
             modelBuilder.Entity("Expired.Models.UserModel", b =>
@@ -125,6 +264,53 @@ namespace Expired.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UserInfo");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DeleteUser = false,
+                            GroupId = 1,
+                            Hash = "949Ebs/nVwzi08Vdz7cZI28dbz4hHlyW93SXUWdcBWU4STLeFIgfOi/LXQNkb/mPi2LuRDwmEk7wEBVOvTS7FzS7n/qQyiw+zv1QQcOKMmzph30AFzUwltFJ69ahWEFslZw/NCV2GudMCHYFBqis3vllQokaEHo19sbzMqD3tU873JuQrCzJxXb0OdngKeJT5/jLddriZXToNsE5GTumrnnQOnG6P290eDd0VJHgCurjKzlchaNKzMYsotYgLmj3hrQIJKt0njjcEqsDtm6m+cFsJ9M5vY4INI0YKVOx5dQBuXC/spKNgDbx8x4g1xSzHtTTKwel1a94Yp0KfEkTBg==",
+                            Salt = "f3Kf9IhMiDpJXfLDGc7DM9n4lhyYUYXfQvhAROUHn5gw/fiYBL6OFZQ8t2OfutqmwQsGeD9dwgjh6MvUsBvqJA==",
+                            Username = "Danny"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DeleteUser = false,
+                            GroupId = 0,
+                            Hash = "SGJyUcgn2+R6+76gXMiGXBJhSh4jNt/b/GF5DEekKkUxMfxpCpO5zVTJLCLk176rW8+Ph5pYz/D1TERfEDgPv6haP78Ogj3DTG2GiT9QdZv9RBAmQqPUBKe/OjOWBDlm6Y49ITOxLiHFXBDV5jxyOfMEhMjlT1Gy99a3jfckkMjFwFjMLCvBXEFyoPLYCMlJbVcNyVtyVo8lkftndoProogigDa5atoNr8RqdoLRQ3/6zhI8zvo6rNMJ5wr96uv0dGmH6TUk48Bqomu923HcavY0YBJ1xL8f1Hne214EDbAmPUxACpVLuhTdviPefb+FHcQ9H8SrvuyaQwGe/CkEkA==",
+                            Salt = "PiLgqPNAW96VxCyUSVX7KMQWHDS8bFX9PbMG8QgV3pn+A+ITCYaLo3M5yw5ShKdORqP5R9/fQTP0WNL6X1D96Q==",
+                            Username = "Jovann"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DeleteUser = false,
+                            GroupId = 1,
+                            Hash = "gOsplAgVxvbNR/w/KO4kzFVHjbQ8CaMCSs04v0QDK7hDe+szWMykqlqdEWKky4HXOhZobZWSEmFH7NMuimKMrx1OClQD6g0XIh6CK8+Ai6ZRtOo7I8ZJbtwRi9Kj+9ee44V8DZhvbRrFh2E25ooQSgF3EP+h1CmUQMVnPqAvV6Evo7lWj+s/Z2GquauBn+H2tDNQekTlaSmta97uOlKE73skCqsZmlDAQNFNDlCOarNN+1x3njSXhEHL1u9CoTyHTwlE6WDMMIUqS6ksWiUNWvwld3UXiIUAyqmrxI692jhs46w9R64cpiZ/sB0RfK88YB4w1/PlILAJcSbNNWoZUg==",
+                            Salt = "2DxKtfn6ksuh64AaVURKyOGTuPtCsaURi2DpIDZugt/oRWuQfqMNpODbbJR+dCECzkahus/iQnReNxHPx6Wwpw==",
+                            Username = "Trent"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DeleteUser = false,
+                            GroupId = 2,
+                            Hash = "CRJLCq7aB48R4+fMkt76lrn0g6fBfgIjXu5p5CUoIK0/sEU+bFjw1A2y895HznAOuxdHlbaauCcqs/a6nYRoX5dro6pulsEWXXUuSNwuoTBUcnkjaQPljj5/SBiTuZX3IKxcdZVJlfFiOW1veZPPOYLI5G5bKnZnGFQ76xEw6KJLWxmLnXHmyjwZPm3jHTVWuOF6jFf+D8Tzo49Hk47tDOg4BzKk0L/HStJlrxicWSBy+g2brAPAypkd0e6wjQgGPlJWQp+5mYRaQW0Z+rrFxVyvkIZ03k6ObEnUevXci82rAQgmeBqvMOMGsrlWX65mCAxX0S4JOR6NeOORSTP/aw==",
+                            Salt = "xKJOIM0ZBtosw7Wmcjc7ZLLO7cOvFZbFxzD3u696PMkCUiDqcj4Ws9pDJVZXtvdo8GnGSH+WEeZFJRryjUy1yQ==",
+                            Username = "Billy"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DeleteUser = false,
+                            GroupId = 3,
+                            Hash = "vvWpOiwl8uuKV9tWFs8mSnyM0xbzAosalTZa2c3FTrXFWRKmaPPb48/YREIT/jVpfgMvjfrG70hxi/buJInFJufKdiBPsRxqRnkImRPFvg7SF+5TAfKWCL1jXpeB3+EsQ3EIi0fD+nYdr6Gn1M+lo1gQp6L/0DnMR/uI1pykdWbOS9/f5Bxj1E7FPlQhkSsHPmYsOczoWOmea8/y3yxKcKWNoZarrxfLe4MePDJj+V3SuZjwxiY7HTv3m8akeOvYRzHHvHdawCodsLhlYmONCYCJo7K8LkPHLuY4KE4g494c0dQ26QxNG2aDlADjHyLUYJdIE/1qeHmGBm+5UOC9zw==",
+                            Salt = "bOJZvLp+4vwExezoxZR9no6pIuX+q97Ckhovw8BLjaN3/0waskCOs/gttGsF6fM+Ohyr01HBZv1RKpML5ExJOQ==",
+                            Username = "Bob"
+                        });
                 });
 #pragma warning restore 612, 618
         }
