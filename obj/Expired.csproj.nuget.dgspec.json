@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Danny\\Documents\\Codestack\\Expired\\Expired.csproj": {}
+    "C:\\Users\\Danny\\Documents\\Codestack\\level3\\Expired\\Expired.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Danny\\Documents\\Codestack\\Expired\\Expired.csproj": {
+    "C:\\Users\\Danny\\Documents\\Codestack\\level3\\Expired\\Expired.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Danny\\Documents\\Codestack\\Expired\\Expired.csproj",
+        "projectUniqueName": "C:\\Users\\Danny\\Documents\\Codestack\\level3\\Expired\\Expired.csproj",
         "projectName": "Expired",
-        "projectPath": "C:\\Users\\Danny\\Documents\\Codestack\\Expired\\Expired.csproj",
+        "projectPath": "C:\\Users\\Danny\\Documents\\Codestack\\level3\\Expired\\Expired.csproj",
         "packagesPath": "C:\\Users\\Danny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Danny\\Documents\\Codestack\\Expired\\obj\\",
+        "outputPath": "C:\\Users\\Danny\\Documents\\Codestack\\level3\\Expired\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Danny\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,6 +38,26 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
