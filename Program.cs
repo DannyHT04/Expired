@@ -17,7 +17,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("ExpiredPolicy",
     builder =>
     {
-        builder.WithOrigins("http://localhost:3000")
+        builder.WithOrigins("http://localhost:3000", "https://expiredbackendapi2.azurewebsites.net")
         .AllowAnyHeader()
         .AllowAnyMethod();
     });
