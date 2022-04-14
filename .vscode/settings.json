@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/16b97aea-4f24-4d50-93e9-d7a14b87b64f/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/ExpiredBackendApi",
+    "appService.deploySubpath": "publish"
+}
