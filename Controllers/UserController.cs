@@ -48,6 +48,12 @@ namespace Expired.Controllers
             return _data.UpdateUsername(id, newUsername);
         }
 
+        //Does user exist
+        [HttpGet("DoesUserExist/{Username}")]
+        public bool DoesUserExist(string? Username)
+        {
+            return _data.DoesUserExist(Username);
+        }
         //Delete A User
         [HttpPost("DeleteUser/{UserName}")]
         public bool DeleteUser(string? Username)
