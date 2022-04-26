@@ -12,6 +12,9 @@ namespace Expired.Models
         public string? Username { get; set; }
         public string? Salt { get; set; }
         public string? Hash { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public string? Email { get; set; }
         public bool DeleteUser { get; set; }
 
         public UserModel() { }
