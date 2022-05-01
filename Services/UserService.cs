@@ -88,6 +88,9 @@ namespace Expired.Services
                 newUser.Username = UserToAdd.Username;
                 newUser.Salt = hashedPassword.Salt;
                 newUser.Hash = hashedPassword.Hash;
+                newUser.Email = UserToAdd.Email;
+                newUser.FirstName = UserToAdd.FirstName;
+                newUser.LastName = UserToAdd.LastName;
 
                 _context.Add(newUser);
                 
