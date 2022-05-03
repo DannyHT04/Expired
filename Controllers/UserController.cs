@@ -60,6 +60,11 @@ namespace Expired.Controllers
         {
             return _data.DeleteUser(Username);
         }
-
+        //Get a user information from username
+        [HttpGet("GetUserInfoByUsername/{Username}")]
+        public IEnumerable<UserModel> GetUserByUsername(string Username)
+        {
+            return _data.GetUserByUsername(Username);
+        }
     }
 }
