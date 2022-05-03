@@ -17,6 +17,6 @@ namespace Expired.Models
         public string? Email { get; set; }
         public bool DeleteUser { get; set; }
 
-        public UserModel() { }
+        public UserModel(){}
     }
 }

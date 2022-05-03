@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Expired.Models.DTO;
+using Expired.Models;
 using Expired.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -61,10 +62,10 @@ namespace Expired.Controllers
             return _data.DeleteUser(Username);
         }
         //Get a user information from username
-        [HttpGet("GetUserInfoByUsername/{Username}")]
-        public IEnumerable<UserModel> GetUserByUsername(string Username)
+        [HttpGet("GetUserInfoByUsername/{username}")]
+        public UserModel GetUserByUsername(string? username)
         {
-            return _data.GetUserByUsername(Username);
+            return _data.GetUserByUsername(username);
         }
     }
 }
