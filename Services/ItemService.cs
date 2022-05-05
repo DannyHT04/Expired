@@ -54,10 +54,10 @@ namespace Expired.Services
             return _context.ItemInfo.Where(item => item.Owner == Owner);
         }
 
-        public IEnumerable<ItemModel> GetByCategory(string Category)
-        {
-            return _context.ItemInfo.Where(item => item.Category == Category);
-        }
+        // public IEnumerable<ItemModel> GetByCategory(string Category)
+        // {
+        //     return _context.ItemInfo.Where(item => item.Category == Category);
+        // }
 
         public IEnumerable<ItemModel> GetGroceryList(bool isGroceryList)
         {

@@ -12,9 +12,10 @@ namespace Expired.Models
         public int GroupId { get; set; }
         public string? ProductName { get; set; }
         public string? DateOfExpiration { get; set; }
+        public string? NotificationDate { get; set; }
         public string? Owner { get; set; }
         public string? ProductImage { get; set; }
-        public string? Category { get; set; }
+        // public string? Category { get; set; }
         public bool isGroceryList { get; set; } 
         public bool isDeleted { get; set; }
         public ItemModel(){}

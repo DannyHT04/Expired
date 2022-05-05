@@ -60,11 +60,11 @@ namespace Expired.Controllers
             return _data.GetByOwner(Owner);
         }
         //Getting item by category
-        [HttpGet("GetByCategory/{Category}")]
-        public IEnumerable<ItemModel> GetByCategory(string Category)
-        {
-            return _data.GetByCategory(Category);
-        }
+        // [HttpGet("GetByCategory/{Category}")]
+        // public IEnumerable<ItemModel> GetByCategory(string Category)
+        // {
+        //     return _data.GetByCategory(Category);
+        // }
 
         //Add To Grocery List by ID
         [HttpPost("AddToGroceryList/{Id}")]
