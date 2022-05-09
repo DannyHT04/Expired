@@ -161,19 +161,33 @@ namespace Expired.Services
             return result;
         }
 
-        public bool AddUserToGroup(int Id, int GroupId)
+        public bool AddUserToGroup(int Id, string GroupId)
         {
             bool result = false;
             UserModel foundUser = GetUserById(Id);
             if(foundUser != null)
             {
-                foundUser.GroupId = GroupId;
+                foundUser.GroupId = foundUser.GroupId +","+ GroupId;
                 _context.Update<UserModel>(foundUser);
                 result = _context.SaveChanges()!=0;
             }
             return result;
         }
 
-        
+        public List<UserModel> GetUsersFromGroup(string aNumber)
+        {
+            List<UserModel> AllUsersInGroup = new List<UserModel>();
+            var AllUsers = GetAllUsers().ToList();
+            for(int i=0; i < AllUsers.Count; i++){
+                UserModel Person = AllUsers[i];
+                var personArr = Person.GroupId.Split(",");
+                for(int j = 0; j< personArr.Length; j++){
+                    if(personArr[j].Contains(aNumber)){
+                        AllUsersInGroup.Add(Person);
+                    }
+                }
+            }
+            return AllUsersInGroup;
+        }
     }
 }

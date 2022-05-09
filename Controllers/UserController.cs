@@ -20,7 +20,11 @@ namespace Expired.Controllers
         {
             _data = _dataFromService;
         }
-
+        //get all users
+        [HttpGet("GetAllUsers")]
+        public IEnumerable<UserModel> GetAllUsers(){
+            return _data.GetAllUsers();
+        }
         //Add a User
         [HttpPost("AddUser")]
         public bool AddUser(CreateAccountDTO UserToAdd)
@@ -30,7 +34,7 @@ namespace Expired.Controllers
 
         //Add a user to a group by user Id and group ID
         [HttpPost("AddUserToGroup/{Id}/{GroupId}")]
-        public bool AddUserToGroup(int Id, int GroupId)
+        public bool AddUserToGroup(int Id, string GroupId)
         {
             return _data.AddUserToGroup(Id, GroupId);
         }
@@ -67,5 +71,12 @@ namespace Expired.Controllers
         {
             return _data.GetUserByUsername(username);
         }
+
+        [HttpGet("GetUsersFromGroup/{aNumber}")]
+        public List<UserModel> GetUsersFromGroup(string aNumber)
+        {
+            return _data.GetUsersFromGroup(aNumber);
+        }
+        
     }
 }

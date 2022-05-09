@@ -8,7 +8,7 @@ namespace Expired.Models
     public class UserModel
     {
         public int Id { get; set; }
-        public int GroupId { get; set; }
+        public string? GroupId { get; set; }
         public string? Username { get; set; }
         public string? Salt { get; set; }
         public string? Hash { get; set; }
