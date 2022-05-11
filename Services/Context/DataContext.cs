@@ -28,6 +28,7 @@ namespace Expired.Services.Context
                     Id = 1,
                     GroupName = "Group 1",
                     GroupPassword = "123",
+                    UsersInGroup = "1,2",
                     IsGroupDeleted = false
                 },
                 new GroupModel(){
@@ -57,7 +58,7 @@ namespace Expired.Services.Context
                 },
                 new UserModel(){
                     Id = 2,
-                    GroupId = "0",
+                    GroupId = "1",
                     Username = "Jovann",
                     Salt = "PiLgqPNAW96VxCyUSVX7KMQWHDS8bFX9PbMG8QgV3pn+A+ITCYaLo3M5yw5ShKdORqP5R9/fQTP0WNL6X1D96Q==",
                     Hash = "SGJyUcgn2+R6+76gXMiGXBJhSh4jNt/b/GF5DEekKkUxMfxpCpO5zVTJLCLk176rW8+Ph5pYz/D1TERfEDgPv6haP78Ogj3DTG2GiT9QdZv9RBAmQqPUBKe/OjOWBDlm6Y49ITOxLiHFXBDV5jxyOfMEhMjlT1Gy99a3jfckkMjFwFjMLCvBXEFyoPLYCMlJbVcNyVtyVo8lkftndoProogigDa5atoNr8RqdoLRQ3/6zhI8zvo6rNMJ5wr96uv0dGmH6TUk48Bqomu923HcavY0YBJ1xL8f1Hne214EDbAmPUxACpVLuhTdviPefb+FHcQ9H8SrvuyaQwGe/CkEkA==",

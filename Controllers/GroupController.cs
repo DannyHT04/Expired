@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Expired.Models;
+using Expired.Models.DTO;
 using Expired.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,9 +21,9 @@ namespace Expired.Controllers
 
         //Add A Group
         [HttpPost("AddGroup")]
-        public bool AddGroup(GroupModel newGroupModel)
+        public bool AddGroup(CreateGroupDTO GroupToAdd)
         {
-            return _data.AddGroup(newGroupModel);
+            return _data.AddGroup(GroupToAdd);
         }
 
         //Delete a Group
@@ -51,6 +52,12 @@ namespace Expired.Controllers
         public bool EditGroupPassword(int Id, string? newPassword)
         {
             return _data.EditGroupPassword(Id, newPassword);
+        }
+
+        [HttpPost("AddUsernameToGroup/{Id}/{username}")]
+        public bool AddUsersToGroup(int Id, string username)
+        {
+            return _data.AddUsersToGroup(Id, username);
         }
     }
 }

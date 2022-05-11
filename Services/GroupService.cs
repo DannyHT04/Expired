@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Expired.Models;
 using Expired.Services.Context;
 using Microsoft.AspNetCore.Mvc;
+using Expired.Models.DTO;
 
 namespace Expired.Services
 {
@@ -21,11 +22,16 @@ namespace Expired.Services
             
             return _context.GroupsInfo.SingleOrDefault( Group => Group.GroupName == GroupName) != null;
         }
-        public bool AddGroup(GroupModel newGroupModel)
+        public bool AddGroup(CreateGroupDTO GroupToAdd)
         {
             bool result = false;
-           if(!DoesGroupExist(newGroupModel.GroupName)){
-               _context.Add(newGroupModel);
+            GroupModel newGroup = new GroupModel();
+           if(!DoesGroupExist(GroupToAdd.GroupName)){
+               newGroup.Id = GroupToAdd.Id;
+               newGroup.GroupName = GroupToAdd.GroupName;
+               newGroup.UsersInGroup = GroupToAdd.UsersInGroup;
+               newGroup.GroupPassword = GroupToAdd.GroupPassword;
+               _context.Add(newGroup);
                result = _context.SaveChanges() != 0;
            }
             
@@ -76,5 +82,23 @@ namespace Expired.Services
             return result;
         }
 
+        public bool AddUsersToGroup(int Id, string Name)
+        {
+            bool result = false;
+            GroupModel foundGroup = GetGroupById(Id);
+            if(foundGroup != null)
+            {
+                foundGroup.UsersInGroup = foundGroup.UsersInGroup + "," + Name;
+                 _context.Update<GroupModel>(foundGroup);
+                 result = _context.SaveChanges()!=0;
+            }
+            return result;
+        }
+
+
+        // public List<GroupModel> GetUsersFromGroup(string GroupId)
+        // {
+        //     List<GroupModel> 
+        // }
     }
 }
