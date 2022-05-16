@@ -28,19 +28,24 @@ namespace Expired.Services.Context
                     Id = 1,
                     GroupName = "Group 1",
                     GroupPassword = "123",
-                    UsersInGroup = "1,2",
+                    UsersIdInGroup = "1,2,3",
+                    UserNameInGroup = "Danny, Jovann, Trent",
                     IsGroupDeleted = false
                 },
                 new GroupModel(){
                     Id = 2,
                     GroupName = "Group 2",
                     GroupPassword = "321",
+                    UsersIdInGroup = "1,2",
+                    UserNameInGroup = "Danny, Jovann",
                     IsGroupDeleted = false
                 },
                 new GroupModel(){
                     Id = 3,
                     GroupName = "Group 3",
                     GroupPassword = "ILovePanCakes",
+                    UsersIdInGroup = "3",
+                    UserNameInGroup = "Trent",
                     IsGroupDeleted = false
                 }
             };

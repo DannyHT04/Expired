@@ -55,9 +55,15 @@ namespace Expired.Controllers
         }
 
         [HttpPost("AddUsernameToGroup/{Id}/{username}")]
-        public bool AddUsersToGroup(int Id, string username)
+        public bool AddUsersNameToGroup(int Id, string username)
         {
-            return _data.AddUsersToGroup(Id, username);
+            return _data.AddUsersNameToGroup(Id, username);
         }
+
+        [HttpGet("GetGroupsByUserId/{userId}")]
+        public IEnumerable<GroupModel> GetGroupsByUserId(string userId){
+            return _data.GetGroupsByUserId(userId);
+        }
+        
     }
 }

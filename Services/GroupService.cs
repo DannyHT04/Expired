@@ -17,6 +17,11 @@ namespace Expired.Services
             _context = context;
         }
 
+        public IEnumerable<GroupModel> GetAllGroups()
+        {
+            return _context.GroupsInfo;
+        }
+
         public bool DoesGroupExist(string? GroupName) 
         {
             
@@ -25,11 +30,11 @@ namespace Expired.Services
         public bool AddGroup(CreateGroupDTO GroupToAdd)
         {
             bool result = false;
+
             GroupModel newGroup = new GroupModel();
            if(!DoesGroupExist(GroupToAdd.GroupName)){
                newGroup.Id = GroupToAdd.Id;
                newGroup.GroupName = GroupToAdd.GroupName;
-               newGroup.UsersInGroup = GroupToAdd.UsersInGroup;
                newGroup.GroupPassword = GroupToAdd.GroupPassword;
                _context.Add(newGroup);
                result = _context.SaveChanges() != 0;
@@ -82,13 +87,13 @@ namespace Expired.Services
             return result;
         }
 
-        public bool AddUsersToGroup(int Id, string Name)
+        public bool AddUsersNameToGroup(int Id, string Name)
         {
             bool result = false;
             GroupModel foundGroup = GetGroupById(Id);
             if(foundGroup != null)
             {
-                foundGroup.UsersInGroup = foundGroup.UsersInGroup + "," + Name;
+                foundGroup.UserNameInGroup = foundGroup.UserNameInGroup + "," + Name;
                  _context.Update<GroupModel>(foundGroup);
                  result = _context.SaveChanges()!=0;
             }
@@ -96,9 +101,20 @@ namespace Expired.Services
         }
 
 
-        // public List<GroupModel> GetUsersFromGroup(string GroupId)
-        // {
-        //     List<GroupModel> 
-        // }
+        public List<GroupModel> GetGroupsByUserId(string userId)
+        {
+            List<GroupModel> AllGroupsFromUser = new List<GroupModel>();
+            var groupsFromUsersId = GetAllGroups().ToList();
+            for (int i=0; i < groupsFromUsersId.Count; i++){
+                GroupModel Group = groupsFromUsersId[i];
+                var GroupArr = Group.UsersIdInGroup.Split(",");
+                for(int j = 0; j< GroupArr.Length; j++){
+                    if(GroupArr[j].Contains(userId)){
+                        groupsFromUsersId.Add(Group);
+                    }
+                }
+            }
+            return groupsFromUsersId;
+        }
     }
 }

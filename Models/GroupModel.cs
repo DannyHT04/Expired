@@ -9,7 +9,8 @@ namespace Expired.Models
     {
         public int Id { get; set; }
         public string? GroupName { get; set; }
-        public string? UsersInGroup {get; set;}
+        public string? UsersIdInGroup {get; set;}
+        public string? UserNameInGroup {get; set;}
         public string? GroupPassword { get; set; }
         public bool IsGroupDeleted { get; set; }
         public GroupModel(){}

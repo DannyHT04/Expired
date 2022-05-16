@@ -9,7 +9,6 @@ namespace Expired.Models.DTO
     {
         public int Id { get; set; }
         public string? GroupName { get; set; }
-        public string? UsersInGroup {get; set;}
         public string? GroupPassword { get; set; }
     }
 }
