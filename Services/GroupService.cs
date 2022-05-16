@@ -49,6 +49,21 @@ namespace Expired.Services
             return _context.GroupsInfo.SingleOrDefault(item => item.Id == Id);
         }
 
+        // public List<GroupModel> GetAllGroupByUserId(int userId)
+        // {
+        //     List<GroupModel> AllGroupsForUser = new List<GroupModel>();
+        //     var AllGroups = AllGroups().ToList();
+        //     for(int i=0; i < AllGroups.Count; i++){
+        //         GroupModel Group = AllGroups[i];
+        //         var GroupUsers = Group.UsersInGroup.Split(",");
+        //         for(int j = 0; j< GroupUsers.Length; j++){
+        //             if(GroupUsers[j].Contains(userId)){
+        //                 AllGroupsForUser.Add(Group);
+        //             }
+        //         }
+        //     }
+        //     return AllUsersInGroup;
+        // }
         public bool DeleteAGroup(int Id)
         {
             GroupModel foundGroup = GetGroupById(Id);
