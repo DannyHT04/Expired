@@ -65,5 +65,9 @@ namespace Expired.Controllers
             return _data.GetGroupsByUserId(userId);
         }
         
+        [HttpGet("GetAllGroups")]
+         public IEnumerable<GroupModel> GetAllGroups(){
+            return _data.GetAllGroups();
+        }
     }
 }
