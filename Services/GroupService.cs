@@ -35,6 +35,8 @@ namespace Expired.Services
            if(!DoesGroupExist(GroupToAdd.GroupName)){
                newGroup.Id = GroupToAdd.Id;
                newGroup.GroupName = GroupToAdd.GroupName;
+               newGroup.UsersIdInGroup = GroupToAdd.UsersIdInGroup;
+               newGroup.UserNameInGroup = GroupToAdd.UserNameInGroup;
                newGroup.GroupPassword = GroupToAdd.GroupPassword;
                _context.Add(newGroup);
                result = _context.SaveChanges() != 0;
@@ -142,7 +144,7 @@ namespace Expired.Services
                 if(usernamesInGroup.Contains(Username))
                 {
                    usernamesInGroup = usernamesInGroup.Where(e => e! != Username).ToArray();
-                   foundGroup.UserNameInGroup = usernamesInGroup.Join(",")
+                   foundGroup.UserNameInGroup = usernamesInGroup.Join(",");
                     _context.Update<GroupModel>(foundGroup);
                 }
                 
