@@ -17,6 +17,11 @@ namespace Expired.Services
             _context = context;
         }
 
+        public IEnumerable<ItemModel> GetAllItems()
+        {
+            return _context.ItemInfo;
+        }
+
         //creating items models
         public bool AddItem(ItemModel newItemModel)
         {

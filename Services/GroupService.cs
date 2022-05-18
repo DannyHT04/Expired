@@ -134,25 +134,25 @@ namespace Expired.Services
             return AllGroupsFromUser;
         }
 
-         public bool DeleteAGroupMember(int Id, string Username)
-        {
-            GroupModel foundGroup = GetGroupById(Id);
-            bool result = false;
-            if (foundGroup != null)
-            {
-                var usernamesInGroup = foundGroup.UserNameInGroup.Split(",");
-                if(usernamesInGroup.Contains(Username))
-                {
-                   usernamesInGroup = usernamesInGroup.Where(e => e! != Username).ToArray();
-                   foundGroup.UserNameInGroup = usernamesInGroup.Join(",");
-                    _context.Update<GroupModel>(foundGroup);
-                }
+        //  public bool DeleteAGroupMember(int Id, string Username)
+        // {
+        //     GroupModel foundGroup = GetGroupById(Id);
+        //     bool result = false;
+        //     if (foundGroup != null)
+        //     {
+        //         var usernamesInGroup = foundGroup.UserNameInGroup.Split(",");
+        //         if(usernamesInGroup.Contains(Username))
+        //         {
+        //            usernamesInGroup = usernamesInGroup.Where(e => e! != Username).ToArray();
+        //            foundGroup.UserNameInGroup = usernamesInGroup.Join(",");
+        //             _context.Update<GroupModel>(foundGroup);
+        //         }
                 
-                _context.Remove<GroupModel>(foundGroup);
-                result = _context.SaveChanges() != 0;
-            }
-            return result;
-        }
+        //         _context.Remove<GroupModel>(foundGroup);
+        //         result = _context.SaveChanges() != 0;
+        //     }
+        //     return result;
+        // }
         
     }
 }
