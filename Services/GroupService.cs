@@ -110,7 +110,7 @@ namespace Expired.Services
             GroupModel foundGroup = GetGroupById(Id);
             if(foundGroup != null)
             {
-                foundGroup.UserNameInGroup = foundGroup.UserNameInGroup + "," + Name;
+                foundGroup.UserNameInGroup = foundGroup.UserNameInGroup + Name + ",";
                  _context.Update<GroupModel>(foundGroup);
                  result = _context.SaveChanges()!=0;
             }
@@ -134,25 +134,30 @@ namespace Expired.Services
             return AllGroupsFromUser;
         }
 
-        //  public bool DeleteAGroupMember(int Id, string Username)
-        // {
-        //     GroupModel foundGroup = GetGroupById(Id);
-        //     bool result = false;
-        //     if (foundGroup != null)
-        //     {
-        //         var usernamesInGroup = foundGroup.UserNameInGroup.Split(",");
-        //         if(usernamesInGroup.Contains(Username))
-        //         {
-        //            usernamesInGroup = usernamesInGroup.Where(e => e! != Username).ToArray();
-        //            foundGroup.UserNameInGroup = usernamesInGroup.Join(",");
-        //             _context.Update<GroupModel>(foundGroup);
-        //         }
+         public bool DeleteAGroupMember(int Id, string Username)
+        {
+            GroupModel foundGroup = GetGroupById(Id);
+            bool result = false;
+            var newUsers = "";
+            if (foundGroup != null)
+            {
+                var usernamesInGroup = foundGroup.UserNameInGroup.Split(",");
+                if(usernamesInGroup.Contains(Username))
+                {
+                    for(int i= 0; i < usernamesInGroup.Length; i++){
+                        if(usernamesInGroup[i] != Username && usernamesInGroup[i] != ""){
+                            newUsers= newUsers + usernamesInGroup[i] + ",";
+                        }
+                    }
+                   foundGroup.UserNameInGroup = newUsers;
+                    _context.Update<GroupModel>(foundGroup);
+                }
                 
-        //         _context.Remove<GroupModel>(foundGroup);
-        //         result = _context.SaveChanges() != 0;
-        //     }
-        //     return result;
-        // }
+                // _context.Remove<GroupModel>(foundGroup);
+                result = _context.SaveChanges() != 0;
+            }
+            return result;
+        }
         
     }
 }

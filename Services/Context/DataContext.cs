@@ -29,7 +29,7 @@ namespace Expired.Services.Context
                     GroupName = "Group 1",
                     GroupPassword = "123",
                     UsersIdInGroup = "1,2,3",
-                    UserNameInGroup = "Danny, Jovann, Trent",
+                    UserNameInGroup = "Danny,Jovann,Trent,",
                     IsGroupDeleted = false
                 },
                 new GroupModel(){
@@ -37,7 +37,7 @@ namespace Expired.Services.Context
                     GroupName = "Group 2",
                     GroupPassword = "321",
                     UsersIdInGroup = "1,2",
-                    UserNameInGroup = "Danny, Jovann",
+                    UserNameInGroup = "Danny,Jovann,",
                     IsGroupDeleted = false
                 },
                 new GroupModel(){
@@ -45,7 +45,7 @@ namespace Expired.Services.Context
                     GroupName = "Group 3",
                     GroupPassword = "ILovePanCakes",
                     UsersIdInGroup = "3",
-                    UserNameInGroup = "Trent",
+                    UserNameInGroup = "Trent,",
                     IsGroupDeleted = false
                 }
             };
@@ -179,7 +179,7 @@ namespace Expired.Services.Context
                     Owner = "Trent",
                     ProductImage = "I am a string of a png",
                     // Category = "Food",
-                    isGroceryList = false,
+                    isGroceryList = true,
                     isDeleted = false
                 },
                 new ItemModel(){

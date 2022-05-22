@@ -69,5 +69,11 @@ namespace Expired.Controllers
          public IEnumerable<GroupModel> GetAllGroups(){
             return _data.GetAllGroups();
         }
+        
+        [HttpPost("DeleteAGroupMember/{Id}/{username}")]
+        public bool DeleteAGroupMember(int Id, string username)
+        {
+            return _data.DeleteAGroupMember(Id, username);
+        }
     }
 }
