@@ -104,13 +104,13 @@ namespace Expired.Services
             return result;
         }
 
-        public bool AddUsersNameToGroup(int Id, string Name)
+        public bool AddUsersNameToGroup(int Id, string username)
         {
             bool result = false;
             GroupModel foundGroup = GetGroupById(Id);
             if(foundGroup != null)
             {
-                foundGroup.UserNameInGroup = foundGroup.UserNameInGroup + Name + ",";
+                foundGroup.UserNameInGroup = foundGroup.UserNameInGroup + username + ",";
                  _context.Update<GroupModel>(foundGroup);
                  result = _context.SaveChanges()!=0;
             }
